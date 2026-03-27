@@ -1,0 +1,31 @@
+{
+  "name": "steelix-final",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "check": "biome check --write .",
+    "dev": "node init && turbo dev",
+    "build": "node init && turbo build",
+    "check-types": "turbo check-types",
+    "check-types:ci": "bun run --cwd apps/server check-types && bun run --cwd apps/web check-types",
+    "dev:native": "node init && turbo -F native dev",
+    "dev:web": "node init && turbo -F web dev",
+    "dev:server": "node init && turbo -F server dev",
+    "db:push": "turbo -F server db:push",
+    "db:studio": "turbo -F server db:studio",
+    "db:generate": "turbo -F server db:generate",
+    "db:migrate": "turbo -F server db:migrate"
+  },
+  "dependencies": {
+    "@noble/hashes": "^2.0.1",
+    "framer-motion": "^12.23.3"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.4",
+    "@biomejs/biome": "1.9.4"
+  },
+  "packageManager": "bun@1.2.12"
+}
